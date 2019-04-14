@@ -25,5 +25,7 @@
 		{{ if .Site.Params.HighlightJs }}
 		<script>hljs.initHighlightingOnLoad();</script>
 		{{ end }}
+		
+		{{ template "_internal/google_analytics_async.html" . }}
 	</body>
 </html>
