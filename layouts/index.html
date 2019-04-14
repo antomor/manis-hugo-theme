@@ -4,11 +4,12 @@
 		{{ partial "title" . }}
 		{{ with .Content }}{{.}}{{ end }}
 	</header>
-{{ $latestcount := .Site.Params.LatestCount | default 3 }}
+	{{ $latestcount := .Site.Params.LatestCount | default 3 }}
+	{{ $postsection := .Site.Params.PostSection | default "post" }}
 	<section>
 		<h4>{{ T "latestPost" }}</h4>
 		<ul class="no-bullet">
-			{{- range (first $latestcount (where .Pages "Section" "blog")) -}}
+			{{- range (first $latestcount (where .Pages "Section" $postsection)) -}}
 			{{ partial "li" . }}
 			{{- end -}}
 		</ul>
@@ -16,7 +17,7 @@
 	<!-- <section>
 		<h4>{{ T "latestWork" }}</h4>
 		<ul class="no-bullet">
-			{{- range (first $latestcount (where .Pages "Section" "work")) -}}
+			{{- range (first $latestcount (where .Pages "Section" $worksection)) -}}
 			{{ partial "li" . }}
 			{{- end -}}
 		</ul>

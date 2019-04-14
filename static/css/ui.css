@@ -21,6 +21,7 @@
 - #Navigation
 - #Spacing
 - #Utilities
+- #Print
 - #Media Queries
 */
 
@@ -101,7 +102,7 @@ h6 {
 }
 
 /* Larger than phablet */
-@media (min-width: 550px) {
+@media (min-width: 55rem) {
   h1 { font-size: 3.6rem; }
   h2 { font-size: 3.0rem; }
   h3 { font-size: 2.8rem; }
@@ -120,8 +121,11 @@ p { margin-top: 0; }
   font-weight: bold
 }
 #brand h5 {
-  color: #aaa;
+  color: #898989;
   margin-bottom: -.2rem;
+}
+#related h3 {
+  text-align: left;
 }
 
 
@@ -133,10 +137,10 @@ a:hover { text-decoration: underline; }
 
 /* #Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-ul { list-style: square inside; }
-ol { list-style: decimal inside; }
+ul { list-style: square; }
+ol { list-style: decimal; }
 ol, ul {
-  padding-left: 0;
+  padding-left: 1.2rem;
   margin-top: 0;
 }
 ul ul,
@@ -149,6 +153,9 @@ ol ul {
 li {
   margin-bottom: .5rem;
   margin-left: .5rem;
+}
+li > p {
+  margin-bottom: .3rem;
 }
 
 ul.no-bullet {
@@ -177,6 +184,10 @@ ul.no-bullet {
     display: inline;
   }
 }
+.terms li>span {
+  color: #666;
+  font-family: monospace;
+}
 
 dd { margin-left: 2rem; }
 
@@ -195,7 +206,7 @@ code {
 pre > code {
   display: block;
   padding: 1rem 1.5rem;
-  white-space: pre;
+  white-space: pre-wrap;
   background: #2b303b;
   color: #c0c5ce;
   font-family: 'Fira Mono', monospace;
@@ -268,6 +279,9 @@ blockquote cite a {
   }
 }
 
+.post-nav {
+  margin-bottom: 2rem;
+}
 .next-post {
   display: block;
   text-align: right;
@@ -292,6 +306,11 @@ p,
 ul,
 ol {
   margin-bottom: 2.5rem; }
+
+#brand {
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
+}
 
 /* #Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -321,7 +340,12 @@ hr {
 }
 
 img {
-  width: 100%;
+  max-width: 100%
+}
+
+article img {
+  display: block;
+  margin: 0 auto;
 }
 
 [class^="icon"] {
@@ -335,6 +359,25 @@ img {
 .icon-social {
   width: 3rem;
   height: 3rem;
+}
+
+
+/* #Print
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media print {
+  .no-print {
+    display: none;
+  }
+
+  pre > code {
+    white-space: pre-wrap;
+  }
+
+  img {
+    display: block;
+    width: 80%;
+    margin: auto;
+  }
 }
 
 /* #Media Queries
