@@ -5,7 +5,7 @@
 		{{ with .Content }}{{.}}{{ end }}
 	</header>
 	{{ $latestcount := .Site.Params.LatestCount | default 3 }}
-	{{ $postsection := .Site.Params.PostSection | default "post" }}
+	{{ $postsection := .Site.Params.PostSection | default "blog" }}
 	<section>
 		<h4>{{ T "latestPost" }}</h4>
 		<ul class="no-bullet">
@@ -14,13 +14,5 @@
 			{{- end -}}
 		</ul>
 	</section>
-	<!-- <section>
-		<h4>{{ T "latestWork" }}</h4>
-		<ul class="no-bullet">
-			{{- range (first $latestcount (where .Pages "Section" $worksection)) -}}
-			{{ partial "li" . }}
-			{{- end -}}
-		</ul>
-	</section> -->
 </article>
 {{ partial "footer" . }}
